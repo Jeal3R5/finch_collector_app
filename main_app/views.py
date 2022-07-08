@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+    return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')      #This is like res.send in express
 
 
 def about(request):
