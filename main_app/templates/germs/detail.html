@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Germy Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ germ.name }}</span>
+        <p>Germ Name: {{ germ.germ_name}}</p>
+        <p>Type: {{ germ.type }}</p>
+        <p>Mode of Transmission: {{germ.mode_of_trans}}</p>
+    </div>
+</div>
+
+{% endblock %}

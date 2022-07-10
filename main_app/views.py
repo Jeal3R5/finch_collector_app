@@ -1,6 +1,8 @@
+from ast import Delete
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Germ
+from django.views.generic.edit import (CreateView, UpdateView, DeleteView)
 
 
 # class Germ:
@@ -29,3 +31,23 @@ def about(request):
 def germs_index(request):
     germs = Germ.objects.all()
     return render(request, "germs/index.html", {'germs': germs })
+
+def germs_detail(request, germ_id):
+    #get individual germ
+    germ = Germ.objects.get(id=germ_id)
+    # render template, pass it to the cat
+    return render(request, 'germs/detail.html', { 'germ': germ})
+
+class GermCreate(CreateView):
+    model = Germ
+    fields = '__all__'
+    success_url = '/germs/'
+
+class GermUpdate(UpdateView):
+    model = Germ
+    #Disallow the renaming of a germ by excluding the name field
+    fields = ['germ_name', 'type', 'mode_of_trans']
+
+class GermDelete(DeleteView):
+    model = Germ
+    success_url: '/germs/'
