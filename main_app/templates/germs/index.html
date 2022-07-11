@@ -5,13 +5,14 @@
 
 {% for germ in germs %}
     <div class='card'>
-        <a href="{% url 'detail' germ.id %}">
+      <a href="{% url 'detail' germ.id %}">
         <div class="card-content">
             <span class="card-title">{{ germ.common_name }}</span>
             <p>Germ Name: {{ germ.germ_name}}</p>
             <p>Type: {{ germ.type }}</p>
             <p>Mode of Transmission: {{ germ.mode_of_trans }}</p>
         </div>
+      </a>
     </div>
 {% endfor %}
 

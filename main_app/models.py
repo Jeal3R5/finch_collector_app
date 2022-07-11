@@ -1,4 +1,4 @@
-from audioop import reverse
+from django.urls import reverse
 from django.db import models
 
 # Create your models here.
@@ -12,8 +12,8 @@ class Germ(models.Model):
     def __str__(self):
         return self.common_name
 
-    # def get_absolute_url(self):
-    #     return reverse("detail", kwargs={'germ_id': self.id})
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={'germ_id': self.id})
 
     
 

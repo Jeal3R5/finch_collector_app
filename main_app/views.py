@@ -1,8 +1,8 @@
-from ast import Delete
+
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Germ
-from django.views.generic.edit import (CreateView, UpdateView, DeleteView)
+from . models import Germ
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 # class Germ:
@@ -46,8 +46,8 @@ class GermCreate(CreateView):
 class GermUpdate(UpdateView):
     model = Germ
     #Disallow the renaming of a germ by excluding the name field
-    fields = ['germ_name', 'type', 'mode_of_trans']
+    fields = ['common_name','type', 'mode_of_trans']
 
 class GermDelete(DeleteView):
     model = Germ
-    success_url: '/germs/'
+    success_url = '/germs/'
