@@ -1,8 +1,9 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from . models import Germ
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Germ, Treatment
+from .forms import TreatmentForm
 
 
 # class Germ:
@@ -35,8 +36,19 @@ def germs_index(request):
 def germs_detail(request, germ_id):
     #get individual germ
     germ = Germ.objects.get(id=germ_id)
+    tx_form = TreatmentForm()
     # render template, pass it to the cat
-    return render(request, 'germs/detail.html', { 'germ': germ})
+    return render(request, 'germs/detail.html', {'germ':germ, 'tx_form': tx_form})
+
+def add_treatment(request, germ_id):
+    form = TreatmentForm(request.POST)
+    if form.is_valid():
+        new_tx = form.save(commit=False)
+        new_tx.germ_id = germ_id
+        new_tx.save()
+    return redirect('detail', germ_id)
+
+
 
 class GermCreate(CreateView):
     model = Germ

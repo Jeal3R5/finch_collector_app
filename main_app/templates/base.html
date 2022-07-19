@@ -9,6 +9,7 @@
   <title>Germ Collector</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <header class="navbar-fixed">
@@ -25,11 +26,19 @@
         </ul>
       </div>
     </nav>
-</header>
-<main class = "container">
-    {% block content %}
-    {% endblock %}
-</main>
-<footer class="page-footer">
-    <div class ="right">All Rights Reserved, &copy;©2022 Germ Collector &nbsp;</div>
-</footer>
+  </header>
+  <main class = "container">
+      {% block content %}
+      {% endblock %}
+  </main>
+  <footer class="page-footer">
+      <div class ="right">All Rights Reserved, &copy;©2022 Germ Collector &nbsp;</div>
+  </footer>
+  <script>
+    let selectEl = document.getElementById('id_tx');
+    M.FormSelect.init(selectEl);
+    let selectEl2 = document.getElementById('id_vax_prevent');
+    M.FormSelect.init(selectEl2);
+  </script>
+</body>
+</html>
