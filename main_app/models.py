@@ -19,7 +19,7 @@ class Symptom(models.Model):
     symptom = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return self.symptom
     
     def get_absolute_url(self):
         return reverse('symptoms_detail', kwargs={'pk': self.id})
@@ -33,6 +33,7 @@ class Germ(models.Model):
     mode_of_trans = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # Add many to many relationship
+    symptoms = models.ManyToManyField(Symptom)
 
     def __str__(self):
         return self.common_name

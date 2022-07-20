@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Symptom List</h1>
+
+{% for symptom in symptom_list %}
+    <div class='card'>
+      <a href="{% url 'symptoms_detail' symptom.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ symptom.symptom }}</span>
+        </div>
+      </a>
+    </div>
+{% endfor %}
+
+{% endblock %}
