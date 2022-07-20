@@ -20,10 +20,16 @@
         </ul>
         <ul class="right">
             <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'symptoms_create'%}">Add a Symptom</a></li>
             <li><a href="{% url 'symptoms_index' %}">View All Symptoms</a></li>
             <li><a href="{% url 'germs_create' %}">Add a Germ</a></li>
             <li><a href="{% url 'germs' %}">View All My Germs</a></li>
+            <li><a href="{% url 'logout'%}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
         </ul>
       </div>
     </nav>

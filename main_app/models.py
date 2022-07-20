@@ -64,6 +64,14 @@ class Treatment(models.Model):
    
 
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    germ = models.ForeignKey(Germ, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for germ_id: {self.germ_id} @{self.url}"
+
+
 
 
 

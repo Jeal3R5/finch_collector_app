@@ -31,5 +31,7 @@ urlpatterns = [
     path('symptoms/create/', views.SymptomCreate.as_view(), name="symptoms_create"),
     path('symptoms/<int:pk>/update/', views.SymptomUpdate.as_view(), name="symptoms_update"),
     path('symptoms/<int:pk>/delete/', views.SymptomDelete.as_view(), name='symptoms_delete'),
-    path('account/signup/', views.signup, name='signup'),
+    path('germs/<int:germ_id>/assoc_symptom/<int:symptom_id>/', views.assoc_symptom, name='assoc_symptom'),
+     path('germs/<int:germ_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
