@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.contrib.auth.models import User
 
 # A tuple of 2-tuples
 TREATMENTS = (
@@ -14,12 +15,23 @@ VAX_PREV = (
     ('N', 'No')
 )
 
+class Symptom(models.Model):
+    symptom = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('symptoms_detail', kwargs={'pk': self.id})
+
+
 # Create your models here.
 class Germ(models.Model):
     common_name = models.CharField(max_length=100)
     germ_name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     mode_of_trans = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     # Add many to many relationship
 
     def __str__(self):

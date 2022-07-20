@@ -19,8 +19,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Germ Collector</a></li>
         </ul>
         <ul class="right">
-            {% comment %} <li><a href="/about">About</a></li> {% endcomment %}
             <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'symptoms_create'%}">Add a Symptom</a></li>
+            <li><a href="{% url 'symptoms_index' %}">View All Symptoms</a></li>
             <li><a href="{% url 'germs_create' %}">Add a Germ</a></li>
             <li><a href="{% url 'germs' %}">View All My Germs</a></li>
         </ul>

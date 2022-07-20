@@ -11,7 +11,7 @@
         <p>Germ Name: {{ germ.germ_name}}</p>
         <p>Germ Type: {{ germ.type }}</p>
 	    <p>Mode of Transmission: {{ germ.mode_of_trans }}
-        {% comment %} <p>Vaccine Preventable: {{ treatment.vax_prevent }} {% endcomment %}
+
       </div>
       <div class="card-action">
         <a href="{% url 'germs_update' germ.id %}">Edit</a>
@@ -53,7 +53,12 @@
     </table>
   </div>
 </div>
+<script>
+let selectEl = document.getElementById('id_meal');
+M.FormSelect.init(selectEl);
+</script>
 {% endblock %}
+
 
 
 
